@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2e8b57; /* Green background for the poker table */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deck {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 1100px; /* Adjust width to fit all cards */
+    justify-content: center;
+}
+
+.card {
+    width: 100px;
+    height: 140px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    background-color: white;
+    position: relative;
+    perspective: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.card .card-front, .card .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.card .card-back {
+    background-color: #007BFF; /* Blue background for the card back */
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateY(0deg);
+}
+
+.card-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.card-rank {
+    font-size: 24px;
+    margin: 10px;
+}
+
+.card-suit {
+    font-size: 36px;
+}
+
+.card.heart .card-suit,
+.card.diamond .card-suit {
+    color: red;
+}
+
+.card.club .card-suit,
+.card.spade .card-suit {
+    color: black;
+}
